@@ -1,6 +1,8 @@
 ﻿#include <iostream>
 #include <stdio.h>
 #include <math.h>
+#include <Windows.h>
+using namespace std;
 
 void f1() {
 	int a, b, s;
@@ -22,7 +24,7 @@ void f1() {
 	if (s == 2 && a == 0) printf("двадцатое ");
 	if (s == 3 && a == 0) printf("тридцатое ");
 	if (s == 3 && a == 1) printf("тридцать первое ");
-	if ((s != 1) and (s != 3) and (a > 0)) {
+	if ((s != 1) && (s != 3) && (a > 0)) {
 		if (s == 2) printf("двадцать ");
 		if (a == 1) printf("первое ");
 		if (a == 2) printf("второе ");
@@ -52,63 +54,161 @@ void f1() {
 void f2() {
 	int i, s;
 	char a;
-	printf("Введите изначальное направление:   ");
-	for (i = 0; 2; i = 0) {
-		scanf_s("%d", &i);
-		s = s + i;
-	}
+	printf("Введите изначальное направление(на английском):   ");
 	scanf_s("%c", &a);
-	printf("%d", s);
+	if (a == 'N') s = 0;
+	if (a == 'W') s = 1;
+	if (a == 'S') s = 2;
+	if (a == 'E') s = 3;
+	printf("Введите команду(одним числом):   ");
+	scanf_s("%d", &i);
+	s = (s + i) % 4;
+	if (s == 0) cout << "N";
+	if (s == 1) cout << "W";
+	if (s == 2) cout << "S";
+	if (s == 3) cout << "E";
 }
 
 void f3() {
-	int a, b, c, s;
-	printf("Введите A, B и C:   ");
-	scanf_s("%d %d %d", &a, &b, &c);
-	if (abs(a - b) < abs(a - c)) {
-		s = abs(a - b);
-		printf("Точка B");
+	int n, s, a;
+	printf("Введите число:   ");
+	scanf_s("%d", &n);
+	s = n / 10;
+	a = n % 10;
+
+	if (s == 1 && a == 0) printf("десять ");
+	if (s == 1 && a == 1) printf("одиннадцать ");
+	if (s == 1 && a == 2) printf("двенадцать ");
+	if (s == 1 && a == 3) printf("тринадцать ");
+	if (s == 1 && a == 4) printf("четырнадцать ");
+	if (s == 1 && a == 5) printf("пятнадцать ");
+	if (s == 1 && a == 6) printf("шестнадцать ");
+	if (s == 1 && a == 7) printf("семнадцать ");
+	if (s == 1 && a == 8) printf("восемнадцть ");
+	if (s == 1 && a == 9) printf("девятнадцать ");
+	if (s == 2 && a == 0) printf("двадцать ");
+	if (s == 3 && a == 0) printf("тридцать ");
+	if (s == 4 && a == 0) printf("сорок ");
+	if ((s != 1) && (a > 0)) {
+		if (s == 2) printf("двадцать ");
+		if (s == 3) printf("тридцать ");
+		if (a == 1) printf("одно ");
+		if (a == 2) printf("два ");
+		if (a == 3) printf("три ");
+		if (a == 4) printf("четыре ");
+		if (a == 5) printf("пять ");
+		if (a == 6) printf("шесть ");
+		if (a == 7) printf("семь ");
+		if (a == 8) printf("восемь ");
+		if (a == 9) printf("девять ");
 	}
-	else {
-		s = abs(a - c);
-		printf("Точка C");
-	}
-	printf("%d", s);
+
+	if ((n <= 20) || (a == 0) || (a >= 5)) printf("учебных зданий");
+	else if (a == 1) printf("учебное здание");
+	else if ((a == 2) || (a == 3) || (a == 4)) printf("учебных здания");
 }
 
 void f4() {
-	int x, y;
-	printf("Введите X и Y:   ");
-	scanf_s("%d %d", &x, &y);
-	if (x > 0 && y > 0) printf("1");
-	else if (x < 0 && y > 0) printf("2");
-	else if (x < 0 && y < 0) printf("3");
-	else if (x > 0 && y < 0) printf("4");
+	int n, a, b, c;
+	printf("Введите число:   ");
+	scanf_s("%d", &n);
+	a = n / 100;
+	b = n / 10 % 10;
+	c = n % 10;
+
+	if (a == 1) printf("Сто ");
+	if (a == 2) printf("Двести ");
+	if (a == 3) printf("Триста ");
+	if (a == 4) printf("Четыреста ");
+	if (a == 5) printf("Пятьсот ");
+	if (a == 6) printf("Шестьсот ");
+	if (a == 7) printf("Семьсот ");
+	if (a == 8) printf("Восемьсот ");
+	if (a == 9) printf("Девятьсот ");
+	
+	if (b == 1) {
+		if (c == 0) printf("десять ");
+		if (c == 1) printf("одиннадцать ");
+		if (c == 2) printf("двенадцать ");
+		if (c == 3) printf("тринадцать ");
+		if (c == 4) printf("четырнадцать ");
+		if (c == 5) printf("пятнадцать ");
+		if (c == 6) printf("шестнадцать ");
+		if (c == 7) printf("семнадцать ");
+		if (c == 8) printf("восемнадцать ");
+		if (c == 9) printf("девятнадцать ");
+	}
+	if (b == 2) printf("двадцать ");
+	if (b == 3) printf("тридцать ");
+	if (b == 4) printf("сорок ");
+	if (b == 5) printf("пятьдесят ");
+	if (b == 6) printf("шестьдесят ");
+	if (b == 7) printf("семдесят ");
+	if (b == 8) printf("восемьдесят ");
+	if (b == 9) printf("девяносто ");
+
+	if (b != 1) {
+		if (c == 1) printf("один ");
+		if (c == 2) printf("два ");
+		if (c == 3) printf("три ");
+		if (c == 4) printf("четыре ");
+		if (c == 5) printf("пять ");
+		if (c == 6) printf("шесть ");
+		if (c == 7) printf("семь ");
+		if (c == 8) printf("восемь ");
+		if (c == 9) printf("девять ");
+	}
 }
 
 void f5() {
-	int a;
+	int n, a, b;
 	printf("Введите число:   ");
-	scanf_s("%d", &a);
-	if (a == 0) printf("Нулевое число");
-	else {
-		if (a > 0) printf("Положительное ");
-		else printf("Отрицательное ");
-		if (a % 2 == 0) printf("четное число");
-		else printf("нечетное число");
+	scanf_s("%d", &n);
+	n = n % 60;
+	a = n / 12;
+	b = n % 12;
+
+	printf("Год ");
+
+	if ((b == 2) || (b == 3) || (b == 4)) {
+		if (a == 0) printf("зелёного ");
+		if (a == 1) printf("красного ");
+		if (a == 2) printf("желтого ");
+		if (a == 3) printf("белого ");
+		if (a == 4) printf("черного ");
 	}
+	else {
+		if (a == 0) printf("зелёной ");
+		if (a == 1) printf("красной ");
+		if (a == 2) printf("желтой ");
+		if (a == 3) printf("белой ");
+		if (a == 4) printf("черной ");
+	}
+
+	if (b == 0) printf("крысы");
+	if (b == 1) printf("коровы");
+	if (b == 2) printf("тигра");
+	if (b == 3) printf("зайца");
+	if (b == 4) printf("дракона");
+	if (b == 5) printf("змеи");
+	if (b == 6) printf("лошади");
+	if (b == 7) printf("овцы");
+	if (b == 8) printf("обезьяны");
+	if (b == 9) printf("курицы");
+	if (b == 10) printf("собаки");
+	if (b == 11) printf("свиньи");
 }
 
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	f1();
+	//f1();
 	printf("\n\n");
-	f2();
+	//f2();
 	printf("\n\n");
-	f3();
+	//f3();
 	printf("\n\n");
-	f4();
+	//f4();
 	printf("\n\n");
 	f5();
 	printf("\n\n");

@@ -18,19 +18,13 @@ void f1() {
 }
 
 void f2() {
-	int n, s;
-	char a;
-	printf("Введите число и направление:   ");
-	scanf_s("%d %c", &n, &a);
-	if (a == "С") s = 0;
-	if (a == "З") s = 1;
-	if (a == "Ю") s = 2;
-	if (a == "В") s = 3;
-	s = (s + n) % 4;
-	if (s == 0) printf("С");
-	if (s == 0) printf("З");
-	if (s == 0) printf("Ю");
-	if (s == 0) printf("В");
+	int a, b, c, s;
+	printf("Введите числа:   ");
+	scanf_s("%d %d %d", &a, &b, &c);
+	if (a < b && a < c) s = b + c;
+	if (b < a && b < c) s = a + c;
+	if (c < b && c < a) s = b + a;
+	printf("%d", s);
 }
 
 void f3() {
