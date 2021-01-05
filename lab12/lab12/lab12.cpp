@@ -202,13 +202,13 @@ void f5() {
 int main()
 {
 	setlocale(LC_ALL, "Russian");
-	//f1();
+	f1();
 	printf("\n\n");
-	//f2();
+	f2();
 	printf("\n\n");
-	//f3();
+	f3();
 	printf("\n\n");
-	//f4();
+	f4();
 	printf("\n\n");
 	f5();
 	printf("\n\n");
